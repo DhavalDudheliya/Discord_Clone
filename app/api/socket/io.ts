@@ -1,4 +1,4 @@
-import { Server as NextServer } from 'http';
+import { Server as NetServer } from 'http';
 import { Server as ServerId } from 'socket.io';
 import { NextApiRequest } from 'next'; 
 import { NextApiResponseServerIo } from '@/types';
@@ -13,7 +13,7 @@ const ioHandler = (req: NextApiRequest, res: NextApiResponseServerIo) => {
     if (!res.socket.server.io) {
         const path = "/api/socket/io";
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const httpServer = res.socket.server as any;
+        const httpServer: NetServer = res.socket.server as any;
 
         const io = new ServerId(httpServer, {
             path: path,
