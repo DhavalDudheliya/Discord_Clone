@@ -86,7 +86,7 @@ export const ChatItem = ({ id, content, member, timestamp, fileUrl, deleted, cur
 
   useEffect(() => {
     form.reset({ content: content });
-  }, [content]);
+  }, [content, form]);
 
   const isAdmin = currentMember.role === MemberRole.ADMIN;
   const isModerator = currentMember.role === MemberRole.MODERATOR;
